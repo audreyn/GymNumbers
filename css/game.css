@@ -1,0 +1,22 @@
+body {
+    background-color: #262625;
+    font-family: Tahoma;
+    font-size: 13px;
+    width: 1024px;
+    margin: 10px auto;
+    color: #FFF;
+}
+
+p {
+    margin: 10px 0;
+}
+
+
+#canvas {
+    background-color: black;
+    display:inline;
+    border: 2px solid #18F9FF;
+    min-height: 400px;
+    min-width: 600px;
+}
+

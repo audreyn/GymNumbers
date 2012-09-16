@@ -1,0 +1,30 @@
+(function() {
+
+	"use strict";
+	
+	this.app.formes = this.app.formes || {};
+
+
+	app.formes.Forme = function() {
+
+		var x;
+        var y;
+        var width;
+        var height;
+        var centre;        
+
+		function Forme() {
+			this.x = 0;
+			this.y = 0;
+			this.width = 0;
+			this.height = 0;
+			this.centre = 0;
+		}
+
+		Forme.prototype.draw = function(context) {
+		    console.log("dans draw");
+		}
+
+ 		return Forme;
+	}();
+})();
