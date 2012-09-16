@@ -17,7 +17,7 @@
         }
         
         Game.prototype.init = function() {
-            this.grid = new app.Grid(9,9,3);
+            this.grid = new app.Grid(9,9,3,10);
             this.grid.draw(this.context);
         }
 

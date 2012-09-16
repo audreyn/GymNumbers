@@ -4,12 +4,13 @@
 
 	app.Grid = function() {
 
-		function Grid(nbColumn, nbLine, nbColor) {
+		function Grid(nbColumn, nbLine, nbColor, numberMax) {
 		    console.log("new Grid");
 		    this.matrix = new Array();
 		    this.nbLine = nbLine;
 		    this.nbColor = nbColor;
 		    this.nbColumn = nbColumn;
+		    this.numberMax = numberMax;
 
 		    for(var i=0; i< this.nbLine; i++){
 		        this.matrix[i] = new Array();
@@ -34,12 +35,10 @@
 		}
 		
 		Grid.prototype.createPieceAlea = function() {
-		    var nbPieces = this.nbColumn*this.nbLine;		// nombre de pions dans la grille
-		    var tab = new Array();		// tableau temporaire qui servira dans l'echange de case
-		    var cpt=0;							// compteur
+		    var nbPieces = this.nbColumn*this.nbLine;	
+		    var tab = new Array();
+		    var cpt=0;	
 		    
-		    
-		    // on remplit le tableau par les chiffre des couleurs : 
 		    for(var i=0; i<this.nbColor; i++)
 		    {
 		        var x = (i+1)*nbPieces/this.nbColor;
@@ -65,10 +64,12 @@
 			    }while(i==j);
 			
 			    // on inverse les cases du tableau :		
-			    tmp=tab[i];
-			    tab[i]=tab[j];
-			    tab[j]=tmp;
-			    tir++;
+			    if(app.js.isDefined(tab[i]) && app.js.isDefined(tab[j])) {
+			        tmp=tab[i];
+			        tab[i]=tab[j];
+			        tab[j]=tmp;
+			    }
+			        tir++; 
 		    }
 		    // on remplit la grille de pion : 
 		    var cpt2=0;
@@ -76,7 +77,8 @@
 		    {
 			    for(var c=0; c<this.nbColumn; c++)
 			    {	
-				    this.matrix[l][c]=new app.Piece(this.color[tab[cpt2]]);
+			        var nbAlea = Math.floor((Math.random()*this.numberMax)+1);
+				    this.matrix[l][c]=new app.Piece(this.color[tab[cpt2]], nbAlea);
 				    cpt2++;
 			    }
 		    }

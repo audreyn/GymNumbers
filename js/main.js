@@ -23,7 +23,4 @@
 	
     game.init();
     
-    // TODO remove this for contest
-    // new app.editor.Editor(game);
-    
 })();
